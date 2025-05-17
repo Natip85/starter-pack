@@ -65,4 +65,48 @@ A ready-to-go, production-grade Next.js starter template packed with modern tool
 
 ```bash
 pnpm install
+pnpm db:start
+pnpm db:generate
+pnpm db:push
+pnpm db:studio
+
+```
+
+### 2. Set up your database
+
+```bash
+pnpm db:start      # Start the Dockerized Postgres DB
+pnpm db:generate   # Generate Drizzle client
+pnpm db:push       # Push schema to database
+pnpm db:studio     # (Optional) Open database studio
+
+```
+
+### 3. Create your .env file
+
+```bash
+# Drizzle
+DATABASE_URL="postgresql://postgres:password@localhost:5432/starter-pack"
+
+# Auth
+BETTER_AUTH_SECRET=""
+BETTER_AUTH_URL="http://localhost:3000"
+
+# Google OAuth
+AUTH_GOOGLE_ID=""
+AUTH_GOOGLE_SECRET=""
+
+# Resend
+AUTH_RESEND_KEY=""
+EMAIL_FROM="support@example.com"
+
+# Base URL
+BASE_URL="http://localhost:3000"
+
+```
+
+### 4. Run the development server
+
+```bash
+pnpm dev
 ```
