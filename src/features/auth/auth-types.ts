@@ -14,7 +14,6 @@ export const userProfileFormSchema = userSelectSchema.pick({
   email: true,
   image: true,
 });
-
 export type UserProfileForm = z.infer<typeof userProfileFormSchema>;
 
 export const LoginSchema = z.object({

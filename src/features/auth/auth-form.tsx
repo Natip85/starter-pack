@@ -79,7 +79,7 @@ export default function AuthForm() {
             className="w-full"
             onClick={() => authClient.signIn.social({ provider: "google" })}
           >
-            {/* <GoogleIcon /> */}iconnnn
+            {/* <GoogleIcon /> */}Sign in with Google
           </Button>
         </div>
       </CardFooter>
