@@ -34,10 +34,10 @@ A ready-to-go, production-grade Next.js starter template packed with modern tool
 
 ## ✨ Features
 
-- 🔐 **Authentication** – Built-in via [`better-auth`](https://github.com/clerkinc/better-auth) with support for Google login
+- 🔐 **Authentication** – Built-in via [`better-auth`](https://www.better-auth.com/) with support for Google login
 - 🧠 **Type-safe APIs** – Powered by [tRPC](https://trpc.io/)
 - ⚡ **Modern ORM** – [Drizzle ORM](https://orm.drizzle.team/) with PostgreSQL & PostGIS support
-- 🎨 **UI Components** – Built using [shadcn/ui](https://ui.shadcn.dev/)
+- 🎨 **UI Components** – Built using [shadcn/ui](https://ui.shadcn.com/)
 - 🎯 **Form Handling** – Integrated with `react-hook-form`
 - 💅 **Styling** – [Tailwind CSS](https://tailwindcss.com/)
 - 🧪 **TypeScript-first** – End-to-end type safety
@@ -52,11 +52,11 @@ A ready-to-go, production-grade Next.js starter template packed with modern tool
 - [Drizzle ORM](https://orm.drizzle.team/)
 - [TRPC](https://trpc.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Shadcn UI](https://ui.shadcn.dev/)
+- [Shadcn UI](https://ui.shadcn.com/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Resend](https://resend.com/)
 - [PostgreSQL + PostGIS (via Docker)](https://postgis.net/)
-- [Better Auth](https://github.com/clerkinc/better-auth)
+- [Better Auth](https://www.better-auth.com/)
 - [ESLint](https://eslint.org/)
 
 ## ⚙️ Getting Started
@@ -65,24 +65,10 @@ A ready-to-go, production-grade Next.js starter template packed with modern tool
 
 ```bash
 pnpm install
-pnpm db:start
-pnpm db:generate
-pnpm db:push
-pnpm db:studio
 
 ```
 
-### 2. Set up your database
-
-```bash
-pnpm db:start      # Start the Dockerized Postgres DB
-pnpm db:generate   # Generate Drizzle client
-pnpm db:push       # Push schema to database
-pnpm db:studio     # (Optional) Open database studio
-
-```
-
-### 3. Create your .env file
+### 2. Create your .env file
 
 ```bash
 # Drizzle
@@ -102,6 +88,16 @@ EMAIL_FROM="support@example.com"
 
 # Base URL
 BASE_URL="http://localhost:3000"
+
+```
+
+### 3. Set up your database
+
+```bash
+pnpm db:start      # Start the Dockerized Postgres DB
+pnpm db:generate   # Generate Drizzle client
+pnpm db:push       # Push schema to database
+pnpm db:studio     # (Optional) Open database studio
 
 ```
 
