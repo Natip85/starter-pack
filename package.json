@@ -5,10 +5,14 @@
   "bin": {
     "create-my-starter": "./index.js"
   },
-  "keywords": ["nextjs", "starter", "cli"],
+  "keywords": [
+    "nextjs",
+    "starter",
+    "cli"
+  ],
   "author": "Natanel",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.3.0"
   }
 }
