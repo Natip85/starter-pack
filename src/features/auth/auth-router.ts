@@ -3,6 +3,7 @@ import { asc, eq } from "drizzle-orm";
 
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 import { user as userTable } from "@/server/db/schema";
+import { hasRole } from "@/lib/permissions";
 
 export const authRouter = createTRPCRouter({
   getMe: protectedProcedure.query(async ({ ctx }) => {
@@ -26,7 +27,12 @@ export const authRouter = createTRPCRouter({
     if (!ctx.session.user) {
       throw new TRPCError({ code: "UNAUTHORIZED" });
     }
-
+    if (!hasRole(ctx.session.user, ["admin"])) {
+      throw new TRPCError({
+        code: "BAD_REQUEST",
+        message: "You are not allowed to view all users",
+      });
+    }
     const users = await ctx.db.query.user.findMany({
       orderBy: asc(userTable.name),
     });

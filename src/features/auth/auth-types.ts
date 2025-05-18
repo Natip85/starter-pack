@@ -5,7 +5,9 @@ import { user } from "@/server/db/schema";
 export const userInsertSchema = createInsertSchema(user);
 export type UserInsert = z.infer<typeof userInsertSchema>;
 
-export const userSelectSchema = createSelectSchema(user);
+export const userSelectSchema = createSelectSchema(user).extend({
+  image: z.string().nullable().optional(),
+});
 export type UserSelect = z.infer<typeof userSelectSchema>;
 
 export const userProfileFormSchema = userSelectSchema.pick({

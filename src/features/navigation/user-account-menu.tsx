@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -50,6 +51,7 @@ export default function UserAccountMenu({ user }: Props) {
             </Avatar>
             <span>{user.name || "User"}</span>
           </SheetTitle>
+          <SheetDescription>Description here</SheetDescription>
         </SheetHeader>
         <div>
           <Separator />
@@ -64,7 +66,7 @@ export default function UserAccountMenu({ user }: Props) {
                 },
               })
             }
-            className="flex w-full cursor-pointer justify-start"
+            className="text-destructive hover:text-destructive hover:bg-destructive/20 flex w-full cursor-pointer justify-start"
           >
             <LogOutIcon /> Sign out
           </Button>

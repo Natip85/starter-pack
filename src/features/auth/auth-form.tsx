@@ -21,8 +21,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema, type LoginSchemaType } from "./auth-types";
 import { authClient } from "@/lib/auth-client";
+import { useState } from "react";
 
 export default function AuthForm() {
+  const [linkSent, setLinkSent] = useState(false);
+
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -34,7 +37,21 @@ export default function AuthForm() {
       email: values.email,
       callbackURL: "/",
     });
+    setLinkSent(true);
   };
+
+  if (linkSent) {
+    return (
+      <Card className="mx-auto max-w-[40vw] text-center">
+        <CardHeader>
+          <CardTitle>📬 Check your email</CardTitle>
+          <CardDescription>
+            We&apos;ve sent you a magic link to log in. Please check your inbox!
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    );
+  }
   return (
     <Card className="mx-auto max-w-[40vw]">
       <CardHeader>
@@ -60,7 +77,7 @@ export default function AuthForm() {
             />
             <div>
               <Button type="submit" className="w-full">
-                Login
+                Login with email
               </Button>
             </div>
           </form>
@@ -79,7 +96,7 @@ export default function AuthForm() {
             className="w-full"
             onClick={() => authClient.signIn.social({ provider: "google" })}
           >
-            {/* <GoogleIcon /> */}Sign in with Google
+            Sign in with Google
           </Button>
         </div>
       </CardFooter>

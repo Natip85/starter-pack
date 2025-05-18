@@ -2,9 +2,9 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { env } from "@/env";
 import { Resend } from "resend";
-import { magicLink } from "better-auth/plugins";
+import { customSession, magicLink } from "better-auth/plugins";
 import { db } from "../db";
-import { schema } from "../db/schema";
+import { schema, type UserRole } from "../db/schema";
 
 const resend = new Resend(env.AUTH_RESEND_KEY);
 
@@ -19,6 +19,16 @@ export const auth = betterAuth({
           react: `click here to sign in ${url}`,
         });
       },
+    }),
+    customSession(async ({ user, session }) => {
+      const roles: UserRole[] = ["user"];
+      return {
+        user: {
+          ...user,
+          roles,
+        },
+        session,
+      };
     }),
   ],
   socialProviders: {

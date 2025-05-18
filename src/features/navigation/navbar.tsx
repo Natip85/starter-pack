@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import UserAccountMenu from "./user-account-menu";
+import SideMenuLinks from "./side-menu-links";
 
 export default function Navbar() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function Navbar() {
       <div className="mx-auto w-full px-4">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-3">
+            {session && <SideMenuLinks />}
             <div>
               <Link href={"/"} className={buttonVariants({ variant: "ghost" })}>
                 <MountainIcon className="size-6" />

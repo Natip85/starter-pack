@@ -1,11 +1,21 @@
-import { pgTable, text, timestamp, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, boolean, pgEnum } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+import { UserRoles, type UserRole } from "./schema-constants";
+
+export const userRoleEnum = pgEnum("user_role", UserRoles);
+const defaultUserRole: UserRole[] = ["user"];
+
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").notNull(),
   image: text("image"),
+  roles: userRoleEnum("roles")
+    .array()
+    .$type<UserRole[]>()
+    .default(defaultUserRole)
+    .notNull(),
   createdAt: timestamp("created_at").notNull(),
   updatedAt: timestamp("updated_at").notNull(),
 });

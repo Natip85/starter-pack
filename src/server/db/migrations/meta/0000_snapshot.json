@@ -1,5 +1,5 @@
 {
-  "id": "32d83035-8b26-45ae-a20d-188f7f693918",
+  "id": "7cd55fa1-e260-4ec3-b99a-0d377a19f35f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -226,6 +226,13 @@
           "primaryKey": false,
           "notNull": false
         },
+        "roles": {
+          "name": "roles",
+          "type": "user_role[]",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'{\"user\"}'"
+        },
         "created_at": {
           "name": "created_at",
           "type": "timestamp",
@@ -305,7 +312,21 @@
       "isRLSEnabled": false
     }
   },
-  "enums": {},
+  "enums": {
+    "public.user_role": {
+      "name": "user_role",
+      "schema": "public",
+      "values": [
+        "admin",
+        "owner",
+        "user",
+        "investigator",
+        "staff",
+        "paid",
+        "blocked"
+      ]
+    }
+  },
   "schemas": {},
   "sequences": {},
   "roles": {},
