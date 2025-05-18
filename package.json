@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Nats Next.js starter CLI",
   "bin": {
-    "create-my-starter": "./index.js"
+    "create-next-starter-pack": "./index.js"
   },
   "keywords": [
     "nextjs",
